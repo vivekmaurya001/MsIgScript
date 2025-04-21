@@ -1,0 +1,533 @@
+./multisig_wallet_health_test.sh 
+Stopping any running bitcoind (if any)...
+Bitcoin Core stopping
+Starting bitcoind in regtest mode with -deprecatedrpc=create_bdb and -fallbackfee=0.0002...
+Bitcoin Core starting
+Creating wallet1 and wallet2...
+Generating new addresses and retrieving public keys...
+wallet1 address: bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd
+wallet2 address: bcrt1q7747cf45nh6ycf4ywhhjn7t8jm0tu7e0f3g4ma
+wallet1 pubkey: 02a44e49269d42d9122bdc3de084aa34fbd443e52fc981b708c965f15960cac4c5
+wallet2 pubkey: 026bab38492f9ead6f698c091a4a7b7f78e83c9ecb0815167809132777342717fb
+Creating multisig wallet (msigwallet) in watch-only mode...
+Multisig address (1-of-2, p2sh-segwit): 2MweSJKAr2KS9uKRjiha8hkXjrCfjwn323X
+Redeem script: 512102a44e49269d42d9122bdc3de084aa34fbd443e52fc981b708c965f15960cac4c521026bab38492f9ead6f698c091a4a7b7f78e83c9ecb0815167809132777342717fb52ae
+Mining 101 blocks to wallet1's address to obtain spendable coins...
+wallet1 balance after mining: 50.00000000 BTC
+=== CASE A: Sweep Transaction (1 input, 1 output) ===
+Sweep TXID: d301a7689f45106cae38b0e3b3146be6d64f7abdf3cb341eab5f140647d345a3
+=== CASE A.1: Send 0.5 BTC from wallet1 to wallet2 ===
+TXID1: e028e46acaf1aead89d0fdfffb4cfd6afe995a72e45bf0311624605c0a166b92
+[
+  "273d15c31feae5a76ab554035ae83de47f89791a3e8de07697b04ce6a79723f4"
+]
+=== CASE A.2: Send 0.3 BTC from wallet2 to multisig address ===
+TXID2: 5333fd1d3fb90ef3d40858280e40dd68e9a8bb70384e801dea0f43ec2e92d3bc
+[
+  "5a06d8eae7845ac5c393933a2a4090c5c03d1e160cf98b357b65594d0c4b745d"
+]
+=== CASE A.3: Send 0.1 BTC from wallet1 to multisig address ===
+TXID3: bc15417e426f4fff084b96f5ab9200cb698220b7120187b9e1f1cc02abfb6d82
+[
+  "3bc70b9376e60bcbfb711229cfaf7e06ea990a27d0ff5fdcb09a728514817ee3"
+]
+[
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.00000000,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 7,
+    "generated": true,
+    "blockhash": "4e82904632aad7b0046a9307326a03aa8c286cef34a2ae196594709182dd7c5b",
+    "blockheight": 201,
+    "blockindex": 0,
+    "blocktime": 1745271470,
+    "txid": "4a462c0450ba02eb0b6d23d59646067f3a5d5f7b35ba0a8b6f3a89b22eedcb69",
+    "wtxid": "642beaec019d2a908f200645adf9831abd943afca6c83e16d9158c450f962c43",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.00000000,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 6,
+    "generated": true,
+    "blockhash": "3a262418de7020763fc8e9d7c53e7f2a28a1b0685aed2db97b41a36ab67805b5",
+    "blockheight": 202,
+    "blockindex": 0,
+    "blocktime": 1745271470,
+    "txid": "c6f06f4f7f4c399d9558232b3584d5c484d3d6fc5f494e829fa552392f09ae30",
+    "wtxid": "236ef4d2d2a2529ce34a31a158bcb5486e2f0edc380b1779184ee060e04ffe75",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.00000000,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 5,
+    "generated": true,
+    "blockhash": "7683387d91bdce476cc578101ae6cf035cdd4d3d18586371785e7a72045ba580",
+    "blockheight": 203,
+    "blockindex": 0,
+    "blocktime": 1745271470,
+    "txid": "92a4103978fb0cde7041e671370af6ec68d8248349f81e6bc3904b3341d21a0a",
+    "wtxid": "2466228ec5573daddda7390809eafd17dbd2c093a90cba793031a95150a4f3d7",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "2MweSJKAr2KS9uKRjiha8hkXjrCfjwn323X",
+    "category": "send",
+    "amount": -0.00500000,
+    "vout": 1,
+    "fee": -0.00002860,
+    "confirmations": 4,
+    "blockhash": "46a3876146418409804b6feef2a731d63ab2f4e7ddcf3f54ceeab5150128b74b",
+    "blockheight": 204,
+    "blockindex": 1,
+    "blocktime": 1745271470,
+    "txid": "d301a7689f45106cae38b0e3b3146be6d64f7abdf3cb341eab5f140647d345a3",
+    "wtxid": "882baed110934d1311c88392f17bdc8dbd7fb8f97103b2288e5983aabd47b7c8",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no",
+    "abandoned": false
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.00002860,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 4,
+    "generated": true,
+    "blockhash": "46a3876146418409804b6feef2a731d63ab2f4e7ddcf3f54ceeab5150128b74b",
+    "blockheight": 204,
+    "blockindex": 0,
+    "blocktime": 1745271470,
+    "txid": "9df522fe7e6ac86e89d1ce311665708126afd7e6d3c51f6e43462188cd71cf4d",
+    "wtxid": "55910808aa12e63623200ba502a71352441ca9af4cb6f38d3f7aa3d5a170f278",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "bcrt1q7747cf45nh6ycf4ywhhjn7t8jm0tu7e0f3g4ma",
+    "category": "send",
+    "amount": -0.00500000,
+    "vout": 0,
+    "fee": -0.00002820,
+    "confirmations": 3,
+    "blockhash": "273d15c31feae5a76ab554035ae83de47f89791a3e8de07697b04ce6a79723f4",
+    "blockheight": 205,
+    "blockindex": 1,
+    "blocktime": 1745271471,
+    "txid": "e028e46acaf1aead89d0fdfffb4cfd6afe995a72e45bf0311624605c0a166b92",
+    "wtxid": "d4d9f1d6313c5e981008b0605d51dfdf242e0493a1b930d29e655f08557d8427",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no",
+    "abandoned": false
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.00002820,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 3,
+    "generated": true,
+    "blockhash": "273d15c31feae5a76ab554035ae83de47f89791a3e8de07697b04ce6a79723f4",
+    "blockheight": 205,
+    "blockindex": 0,
+    "blocktime": 1745271471,
+    "txid": "a41dba3df36ffe4b8fb3e79fa91bf4048c340b1c038237ed64fca2051a567876",
+    "wtxid": "41271f9b35a31aca0c8c6bcddc0a22d2e32dc73a738d9107b810bcff8fe35a80",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.00002860,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 2,
+    "generated": true,
+    "blockhash": "5a06d8eae7845ac5c393933a2a4090c5c03d1e160cf98b357b65594d0c4b745d",
+    "blockheight": 206,
+    "blockindex": 0,
+    "blocktime": 1745271471,
+    "txid": "202e27f8fa76f8a7e5d949bbdc374fa98ae48d9b75416b97719aa0545a075623",
+    "wtxid": "6115cd99515d055552f25668e5076e4e94365b954b7de8f2315e82f9fd0dfa1a",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "2MweSJKAr2KS9uKRjiha8hkXjrCfjwn323X",
+    "category": "send",
+    "amount": -0.00100000,
+    "vout": 1,
+    "fee": -0.00002860,
+    "confirmations": 1,
+    "blockhash": "3bc70b9376e60bcbfb711229cfaf7e06ea990a27d0ff5fdcb09a728514817ee3",
+    "blockheight": 207,
+    "blockindex": 1,
+    "blocktime": 1745271471,
+    "txid": "bc15417e426f4fff084b96f5ab9200cb698220b7120187b9e1f1cc02abfb6d82",
+    "wtxid": "dc8db6ea2cb0b3127ec5e77489d3d9804598ede64c2aef1fc2ed16b870657885",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no",
+    "abandoned": false
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.00002860,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 1,
+    "generated": true,
+    "blockhash": "3bc70b9376e60bcbfb711229cfaf7e06ea990a27d0ff5fdcb09a728514817ee3",
+    "blockheight": 207,
+    "blockindex": 0,
+    "blocktime": 1745271471,
+    "txid": "8b3670a38aff7347233cb8ca5df81ef583b7f396dc1500582b4ab21553d3302e",
+    "wtxid": "7e1c564aea16fe77261cd75a864a03d23da44a4928caa97f3e0e0ca0323db3da",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  }
+]
+[
+  {
+    "address": "bcrt1q7747cf45nh6ycf4ywhhjn7t8jm0tu7e0f3g4ma",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4YN4TshYpQhUhiCBrtcKSzmsXizwJM4rKxUdiaMHECq8tnTYYQ8EVzaDZQww3XRcAKqrE6ScgssEeRkG8cxZg1953n5Bj6yy/84h/1h/0h/0/*)#u2fp9szv"
+    ],
+    "category": "receive",
+    "amount": 0.00500000,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 3,
+    "blockhash": "273d15c31feae5a76ab554035ae83de47f89791a3e8de07697b04ce6a79723f4",
+    "blockheight": 205,
+    "blockindex": 1,
+    "blocktime": 1745271471,
+    "txid": "e028e46acaf1aead89d0fdfffb4cfd6afe995a72e45bf0311624605c0a166b92",
+    "wtxid": "d4d9f1d6313c5e981008b0605d51dfdf242e0493a1b930d29e655f08557d8427",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "2MweSJKAr2KS9uKRjiha8hkXjrCfjwn323X",
+    "category": "send",
+    "amount": -0.00300000,
+    "vout": 0,
+    "fee": -0.00002860,
+    "confirmations": 2,
+    "blockhash": "5a06d8eae7845ac5c393933a2a4090c5c03d1e160cf98b357b65594d0c4b745d",
+    "blockheight": 206,
+    "blockindex": 1,
+    "blocktime": 1745271471,
+    "txid": "5333fd1d3fb90ef3d40858280e40dd68e9a8bb70384e801dea0f43ec2e92d3bc",
+    "wtxid": "2456d889fc3d4263a7160de5c8ebfc0372425e1cb263ed28d8644736b8f25e23",
+    "walletconflicts": [
+    ],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no",
+    "abandoned": false
+  }
+]
+[
+]
+=== Full Transaction History for msigwallet ===
+[]
+=== Full Transaction History for wallet1 ===
+[
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 7,
+    "generated": true,
+    "blockhash": "4e82904632aad7b0046a9307326a03aa8c286cef34a2ae196594709182dd7c5b",
+    "blockheight": 201,
+    "blockindex": 0,
+    "blocktime": 1745271470,
+    "txid": "4a462c0450ba02eb0b6d23d59646067f3a5d5f7b35ba0a8b6f3a89b22eedcb69",
+    "wtxid": "642beaec019d2a908f200645adf9831abd943afca6c83e16d9158c450f962c43",
+    "walletconflicts": [],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 6,
+    "generated": true,
+    "blockhash": "3a262418de7020763fc8e9d7c53e7f2a28a1b0685aed2db97b41a36ab67805b5",
+    "blockheight": 202,
+    "blockindex": 0,
+    "blocktime": 1745271470,
+    "txid": "c6f06f4f7f4c399d9558232b3584d5c484d3d6fc5f494e829fa552392f09ae30",
+    "wtxid": "236ef4d2d2a2529ce34a31a158bcb5486e2f0edc380b1779184ee060e04ffe75",
+    "walletconflicts": [],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 5,
+    "generated": true,
+    "blockhash": "7683387d91bdce476cc578101ae6cf035cdd4d3d18586371785e7a72045ba580",
+    "blockheight": 203,
+    "blockindex": 0,
+    "blocktime": 1745271470,
+    "txid": "92a4103978fb0cde7041e671370af6ec68d8248349f81e6bc3904b3341d21a0a",
+    "wtxid": "2466228ec5573daddda7390809eafd17dbd2c093a90cba793031a95150a4f3d7",
+    "walletconflicts": [],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "2MweSJKAr2KS9uKRjiha8hkXjrCfjwn323X",
+    "category": "send",
+    "amount": -0.005,
+    "vout": 1,
+    "fee": -2.86e-05,
+    "confirmations": 4,
+    "blockhash": "46a3876146418409804b6feef2a731d63ab2f4e7ddcf3f54ceeab5150128b74b",
+    "blockheight": 204,
+    "blockindex": 1,
+    "blocktime": 1745271470,
+    "txid": "d301a7689f45106cae38b0e3b3146be6d64f7abdf3cb341eab5f140647d345a3",
+    "wtxid": "882baed110934d1311c88392f17bdc8dbd7fb8f97103b2288e5983aabd47b7c8",
+    "walletconflicts": [],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no",
+    "abandoned": false
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.0000286,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 4,
+    "generated": true,
+    "blockhash": "46a3876146418409804b6feef2a731d63ab2f4e7ddcf3f54ceeab5150128b74b",
+    "blockheight": 204,
+    "blockindex": 0,
+    "blocktime": 1745271470,
+    "txid": "9df522fe7e6ac86e89d1ce311665708126afd7e6d3c51f6e43462188cd71cf4d",
+    "wtxid": "55910808aa12e63623200ba502a71352441ca9af4cb6f38d3f7aa3d5a170f278",
+    "walletconflicts": [],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "bcrt1q7747cf45nh6ycf4ywhhjn7t8jm0tu7e0f3g4ma",
+    "category": "send",
+    "amount": -0.005,
+    "vout": 0,
+    "fee": -2.82e-05,
+    "confirmations": 3,
+    "blockhash": "273d15c31feae5a76ab554035ae83de47f89791a3e8de07697b04ce6a79723f4",
+    "blockheight": 205,
+    "blockindex": 1,
+    "blocktime": 1745271471,
+    "txid": "e028e46acaf1aead89d0fdfffb4cfd6afe995a72e45bf0311624605c0a166b92",
+    "wtxid": "d4d9f1d6313c5e981008b0605d51dfdf242e0493a1b930d29e655f08557d8427",
+    "walletconflicts": [],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no",
+    "abandoned": false
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.0000282,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 3,
+    "generated": true,
+    "blockhash": "273d15c31feae5a76ab554035ae83de47f89791a3e8de07697b04ce6a79723f4",
+    "blockheight": 205,
+    "blockindex": 0,
+    "blocktime": 1745271471,
+    "txid": "a41dba3df36ffe4b8fb3e79fa91bf4048c340b1c038237ed64fca2051a567876",
+    "wtxid": "41271f9b35a31aca0c8c6bcddc0a22d2e32dc73a738d9107b810bcff8fe35a80",
+    "walletconflicts": [],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.0000286,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 2,
+    "generated": true,
+    "blockhash": "5a06d8eae7845ac5c393933a2a4090c5c03d1e160cf98b357b65594d0c4b745d",
+    "blockheight": 206,
+    "blockindex": 0,
+    "blocktime": 1745271471,
+    "txid": "202e27f8fa76f8a7e5d949bbdc374fa98ae48d9b75416b97719aa0545a075623",
+    "wtxid": "6115cd99515d055552f25668e5076e4e94365b954b7de8f2315e82f9fd0dfa1a",
+    "walletconflicts": [],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "2MweSJKAr2KS9uKRjiha8hkXjrCfjwn323X",
+    "category": "send",
+    "amount": -0.001,
+    "vout": 1,
+    "fee": -2.86e-05,
+    "confirmations": 1,
+    "blockhash": "3bc70b9376e60bcbfb711229cfaf7e06ea990a27d0ff5fdcb09a728514817ee3",
+    "blockheight": 207,
+    "blockindex": 1,
+    "blocktime": 1745271471,
+    "txid": "bc15417e426f4fff084b96f5ab9200cb698220b7120187b9e1f1cc02abfb6d82",
+    "wtxid": "dc8db6ea2cb0b3127ec5e77489d3d9804598ede64c2aef1fc2ed16b870657885",
+    "walletconflicts": [],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no",
+    "abandoned": false
+  },
+  {
+    "address": "bcrt1q5rty96xwy2gxzltagatch5f0c0uplr09xmdddd",
+    "parent_descs": [
+      "wpkh(tpubD6NzVbkrYhZ4XsyuJAb7rm7wEurDoe69HWkm3EoZuhy89CGRs815c2oqt18NxdF5Sb3miMFawHR21zPUV2oRyra2XtdKr54NaUg9bdg4PmR/84h/1h/0h/0/*)#r3n9td03"
+    ],
+    "category": "immature",
+    "amount": 25.0000286,
+    "label": "",
+    "vout": 0,
+    "abandoned": false,
+    "confirmations": 1,
+    "generated": true,
+    "blockhash": "3bc70b9376e60bcbfb711229cfaf7e06ea990a27d0ff5fdcb09a728514817ee3",
+    "blockheight": 207,
+    "blockindex": 0,
+    "blocktime": 1745271471,
+    "txid": "8b3670a38aff7347233cb8ca5df81ef583b7f396dc1500582b4ab21553d3302e",
+    "wtxid": "7e1c564aea16fe77261cd75a864a03d23da44a4928caa97f3e0e0ca0323db3da",
+    "walletconflicts": [],
+    "time": 1745271455,
+    "timereceived": 1745271455,
+    "bip125-replaceable": "no"
+  }
+]
